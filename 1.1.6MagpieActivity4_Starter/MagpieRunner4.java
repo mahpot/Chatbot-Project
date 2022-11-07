@@ -17,9 +17,9 @@ public class MagpieRunner4
 		
 		System.out.println (maggie.getGreeting());
 		Scanner in = new Scanner (System.in);
-		String statement = in.nextLine();
+		String statement = in.nextLine().toLowerCase();
 		
-		while (!statement.equals("Bye"))
+		while (!statement.equals("bye"))
 		{
 			System.out.println (maggie.getResponse(statement));
 			statement = in.nextLine();

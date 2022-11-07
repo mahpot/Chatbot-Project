@@ -16,6 +16,7 @@ public class Magpie4
 	 * Get a default greeting 	
 	 * @return a greeting
 	 */	
+  //test
     
 	public String getGreeting()
 	{
@@ -158,7 +159,7 @@ public class Magpie4
 			}
 			else
 			{
-				response = getRandomResponse();
+				response = getRandomResponse(statement);
 			}
 		}
 		return response;
@@ -317,9 +318,9 @@ public class Magpie4
 	 * Pick a default response to use if nothing else fits.
 	 * @return a non-committal string
 	 */
-	private String getRandomResponse()
+	private String getRandomResponse(String statement)
 	{
-		final int NUMBER_OF_RESPONSES = 7;
+		final int NUMBER_OF_RESPONSES = 9;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -351,6 +352,15 @@ public class Magpie4
     else if (whichResponse == 6)
 		{
 			response = "Oh, really?";
+		}
+    else if (whichResponse == 7)
+		{
+			response = "Can you clarify what you meant by '" + statement + "'";
+		}
+    else if (whichResponse == 8)
+		{
+      String resp = "What does '" + statement + "' mean?";
+			response = resp;
 		}
 
 		return response;
