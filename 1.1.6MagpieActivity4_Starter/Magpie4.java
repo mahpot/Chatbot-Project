@@ -19,7 +19,7 @@ public class Magpie4
     
 	public String getGreeting()
 	{
-		return "Hello there! I'm Beartha";
+		return "Hello there! I'm Beartha. If you need help at any point, just say 'help me'. I look forward to our conversation!";
 	}
 	
 	/**
