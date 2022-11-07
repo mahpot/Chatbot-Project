@@ -19,7 +19,7 @@ public class Magpie4
     
 	public String getGreeting()
 	{
-		return "Hello there!";
+		return "Hello there! I'm Beartha";
 	}
 	
 	/**
@@ -44,6 +44,15 @@ public class Magpie4
   else if (findKeyword(statement, "hello") >= 0{
       response = "Hi there! I'm Beartha. What's your name? How are you?";
     }
+    else if (findKeyword(statement, "bored")>=0|| findKeyword(statement, "funny") >= 0){
+      response = "Wanna hear a joke or a pick up line?";
+    }
+    else if (findKeyword(statement, "joke")>=0|| findKeyword(statement, "funny") >= 0){
+      response = getRandomjoke();
+    }
+  else if (findKeyword(statement, "joke")>=0|| findKeyword(statement, "pickup") >= 0){
+      response = getRandomLine();
+    }    
 
     else if (findKeyword(statement, "hi") >= 0
 				|| findKeyword(statement, "hey") >= 0){
@@ -202,7 +211,44 @@ public class Magpie4
 	}
 	
 
+  private String getRandomjoke()
+	{
+		final int NUMBER_OF_RESPONSES = 7;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+		String response = "";
+		
+		if (whichResponse == 0)
+		{
+			response = "What do you give a sick bird? A tweetment.";
+		}
+		else if (whichResponse == 1)
+		{
+			response = "What do cats have for breakfast? Mice Crispies!";
+		}
+		else if (whichResponse == 2)
+		{
+			response = "What do you get from a pampered cow? Spoiled milk!";
+		}
+		else if (whichResponse == 3)
+		{
+			response = "What did the buffalo say to his son when he left for college? Bison!";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "How much money does a skunk have? One scent!";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "What did the leopard say after finishing a delicious meal? That hit the spot!";
+		}
+    else if (whichResponse == 6)
+		{
+			response = "Where do polar bears vote? The North Poll.";
+		}
 
+		return response;
+	}
 	/**
 	 * Pick a default response to use if nothing else fits.
 	 * @return a non-committal string
@@ -241,6 +287,44 @@ public class Magpie4
     else if (whichResponse == 6)
 		{
 			response = "Oh, really?";
+		}
+
+		return response;
+	}
+  private String getRandomLine()
+	{
+		final int NUMBER_OF_RESPONSES = 7;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+		String response = "";
+		
+		if (whichResponse == 0)
+		{
+			response = "Are you a cat because you’re purrfect.";
+		}
+		else if (whichResponse == 1)
+		{
+			response = "Are you a unicorn cause you are my fantasy.";
+		}
+		else if (whichResponse == 2)
+		{
+			response = "If I were a cat, I'd spend all 9 lives with you.";
+		}
+		else if (whichResponse == 3)
+		{
+			response = "Girl, if you were a dinosaur, you'd be a Gorgeousaurus.";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "Aren't you tired? Because you've been galloping through my mind all evening.";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "are you on the endangered species list? 'Cause you are one of a kind!";
+		}
+    else if (whichResponse == 6)
+		{
+			response = "Wanna go on a picnic? Alpaca lunch.";
 		}
 
 		return response;
