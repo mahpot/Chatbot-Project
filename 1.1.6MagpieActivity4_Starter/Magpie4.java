@@ -19,7 +19,7 @@ public class Magpie4
     
 	public String getGreeting()
 	{
-		return "Hello, let's talk.";
+		return "Hello there!";
 	}
 	
 	/**
@@ -32,22 +32,39 @@ public class Magpie4
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.length() == 0)
-		{
+    
+		if (statement.length() == 0){
 			response = "Say something, please.";
 		}
 
-		else if (findKeyword(statement, "no") >= 0)
-		{
+		else if (findKeyword(statement, "no") >= 0){
 			response = "Why so negative?";
 		}
+
+  else if (findKeyword(statement, "hello") >= 0{
+      response = "Hi there! I'm Beartha. What's your name? How are you?";
+    }
+
+    else if (findKeyword(statement, "hi") >= 0
+				|| findKeyword(statement, "hey") >= 0){
+      response = "Hello! I'm Beartha. Nice to meet you! What's your name?";
+    }
+
+    else if (findKeyword(statement, "name") >= 0{
+      response = "Nice to meet you! I'm Beartha. How's the weather?";
+    }
+
+    else if (findKeyword(statement, "how are you") >= 0
+				|| findKeyword(statement, "it going") >= 0){
+      response = "I'm quite well. How's the weather today?";
+    }
+      
 		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
-		{
+				|| findKeyword(statement, "brother") >= 0){
 			response = "Tell me more about your family.";
-		}
+		} 
 
 		// Responses which require transformations
 		else if (findKeyword(statement, "I want to", 0) >= 0)
@@ -192,7 +209,7 @@ public class Magpie4
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 7;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -212,6 +229,18 @@ public class Magpie4
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "I'm not quite sure I understand";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "Baaaaa";
+		}
+    else if (whichResponse == 6)
+		{
+			response = "Oh, really?";
 		}
 
 		return response;
