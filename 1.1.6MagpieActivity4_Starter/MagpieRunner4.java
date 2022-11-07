@@ -24,6 +24,8 @@ public class MagpieRunner4
 			System.out.println (maggie.getResponse(statement));
 			statement = in.nextLine();
 		}
+
+    System.out.println("It was a pleasure talking to you. I'll miss you 'pig' time! Bye!");
 	}
 
 }

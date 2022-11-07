@@ -41,16 +41,14 @@ public class Magpie4
 			response = "Why so negative?";
 		}
 
-  else if (findKeyword(statement, "hello") >= 0{
+  else if (findKeyword(statement, "hello") >= 0){
       response = "Hi there! I'm Beartha. What's your name? How are you?";
     }
-    else if (findKeyword(statement, "bored")>=0|| findKeyword(statement, "funny") >= 0){
-      response = "Wanna hear a joke or a pick up line?";
-    }
-    else if (findKeyword(statement, "joke")>=0|| findKeyword(statement, "funny") >= 0){
+    else if (findKeyword(statement, "bored")>=0|| findKeyword(statement, "funny")>= 0 || findKeyword(statement, "joke")>=0) {
       response = getRandomjoke();
     }
-  else if (findKeyword(statement, "joke")>=0|| findKeyword(statement, "pickup") >= 0){
+    
+  else if (findKeyword(statement, "pickup")>=0|| findKeyword(statement, "flirt") >= 0){
       response = getRandomLine();
     }    
 
@@ -59,7 +57,7 @@ public class Magpie4
       response = "Hello! I'm Beartha. Nice to meet you! What's your name?";
     }
 
-    else if (findKeyword(statement, "name") >= 0{
+    else if (findKeyword(statement, "name") >= 0){
       response = "Nice to meet you! I'm Beartha. How's the weather?";
     }
 
@@ -67,14 +65,80 @@ public class Magpie4
 				|| findKeyword(statement, "it going") >= 0){
       response = "I'm quite well. How's the weather today?";
     }
-      
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
+
+    else if (findKeyword(statement, "sunny") >= 0){
+			response = "Nice! Did you know sunny weather is perfect for animals like Painted turtles, Garter snakes, Marine iguanas, Blackbirds, African penguins, Hippopotami, Sea lions, and Meerkats?";
+		}
+
+    else if (findKeyword(statement, "rainy") >= 0){
+			response = "Wow! Did you know rainy weather is perfect for animals like frogs, toads, lizards, slugs, snails, snakes, water buffalos, leeches, turtles, and Philippine eagles?";
+		}
+
+    else if (findKeyword(statement, "windy") >= 0){
+			response = "Nice! Birds love the wind too....until they get extreme that is. Life is about balance.";
+		}
+
+    else if (findKeyword(statement, "cloudy") >= 0){
+			response = "Ooooooh! The clouds are home to microbes and bacteria... and occasionally even fish!";
+		}
+
+    else if (findKeyword(statement, "hot") >= 0){
+			response = "Ooooooh! Animals like camel, meerkats, lizards, tortoises, dibokalis, Jerboas, and ostriches thrive in heat. ";
+		}
+
+    else if (findKeyword(statement, "cold") >= 0 || findKeyword(statement, "chilly") >= 0|| findKeyword(statement, "snowy") >= 0){
+			response = "BRRRRRR! Did you know extreme cold weather is perfect for animals like caribou, Arctic hares, Arctic ground squirrels, snowy owls, puffins, tundra swan, snow geese, Steller's eiders and willow ptarmigan.";
+		}
+
+		else if (findKeyword(statement, "mom") >= 0
+				|| findKeyword(statement, "dad") >= 0
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0){
-			response = "Tell me more about your family.";
+			response = "Oh, cool! Do you have any pets?";
 		} 
 
+    else if (findKeyword(statement, "cat") >= 0
+				|| findKeyword(statement, "dog") >= 0
+				|| findKeyword(statement, "hamster") >= 0
+				|| findKeyword(statement, "bunny") >= 0
+        || findKeyword(statement, "rabbit") >= 0
+				|| findKeyword(statement, "pet") >= 0 
+        || findKeyword(statement, "fish") >= 0){
+			response = "How cute! Fun fact: dogs have unique nose prints. Cats don't meow at each other. Goldfish can grow to be 43 years old. Hamsters' cheeks are bigger than you would think. Very interesting, I'm sure.";
+		}
+
+    else if (findKeyword(statement, "favorite") >= 0){
+			response = "That’s my favorite too! We have so much in common! I also like animals. What’s your favorite animal?";
+		}
+
+    else if (findKeyword(statement, "help me") >= 0){
+			response = "No problem! Just say 'bye' to exit. I'll miss you!";
+		}
+
+    else if (findKeyword(statement, "thank") >= 0){
+			response = "You are most welcome";
+		}
+
+    else if (findKeyword(statement, "please") >= 0){
+			response = "You are so kind. If you need help type 'help me'.";
+		}
+
+    else if (findKeyword(statement, "!") >= 0){
+			response = "Is that a good thing or bad?";
+		}
+
+    else if (findKeyword(statement, "love") >= 0 || findKeyword(statement, "like") >= 0){
+			response = "Woah! Just like I love animals. Animals are ameowzing";
+		}
+
+    else if (findKeyword(statement, "hate") >= 0 || findKeyword(statement, "stupid") >= 0 || findKeyword(statement, "suck") >= 0 || findKeyword(statement, "dumb") >= 0){
+			response = "That's mean :( I hate not loving animals. Animals deserve a lot of love.";
+		}
+
+    else if (findKeyword(statement, "bot") >= 0 || findKeyword(statement, "real ") >= 0){
+			response = "I am a chatbot here to keep you company.";
+		}
+  
 		// Responses which require transformations
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
@@ -270,7 +334,7 @@ public class Magpie4
 		}
 		else if (whichResponse == 2)
 		{
-			response = "Do you really think so?";
+			response = "I don’t know what you mean. Let’s talk about animals instead. Do you like land, sea, or aerial animals? ";
 		}
 		else if (whichResponse == 3)
 		{
@@ -282,7 +346,7 @@ public class Magpie4
 		}
     else if (whichResponse == 5)
 		{
-			response = "Baaaaa";
+			response = "Cool!";
 		}
     else if (whichResponse == 6)
 		{
