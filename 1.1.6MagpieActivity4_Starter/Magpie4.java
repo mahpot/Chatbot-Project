@@ -133,7 +133,7 @@ public class Magpie4
 		}
 
     else if (findKeyword(statement, "hate") >= 0 || findKeyword(statement, "stupid") >= 0 || findKeyword(statement, "suck") >= 0 || findKeyword(statement, "dumb") >= 0){
-			response = "That's mean :( I hate not loving animals. Animals deserve a lot of love.";
+			response = "Hatred is a very negative emotion. Unfortunately, animal hatred is getting increasingly common. Animal cruelty includes intentional, malicious acts of animal abuse and less clear-cut situations where the needs of an animal are neglected. Violence against animals has been linked to a higher likelihood of criminal violence and domestic abuse. We must fight to combat this issue.";
 		}
 
     else if (findKeyword(statement, "bot") >= 0 || findKeyword(statement, "real ") >= 0){
