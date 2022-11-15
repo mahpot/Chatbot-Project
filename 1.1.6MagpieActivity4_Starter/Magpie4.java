@@ -17,42 +17,31 @@ public class Magpie4
 	 * @return a greeting
 	 */	
   //test
-    
+  int count = 1;
+  public int parseInput(String userInput){
+    int curr =0;
+    if (findKeyword(userInput, "hello") >= 0|| findKeyword(userInput, "hey") >= 0|| findKeyword(userInput, "name") >= 0|| findKeyword(userInput, "hi") >= 0|| findKeyword(userInput, "how are you") >= 0){
+      curr = 1;
+    }
+    else if(findKeyword(userInput, "bored") >= 0|| findKeyword(userInput, "pickup") >= 0|| findKeyword(userInput, "funny") >= 0|| findKeyword(userInput, "flirt") >= 0|| findKeyword(userInput, "sunny") >= 0|| findKeyword(userInput, "rainy") >= 0|| findKeyword(userInput, "windy") >= 0|| findKeyword(userInput, "cloudy") >= 0|| findKeyword(userInput, "hot") >= 0|| findKeyword(userInput, "cold") >= 0|| findKeyword(userInput, "mom") >= 0|| findKeyword(userInput, "dad") >= 0|| findKeyword(userInput, "cat") >= 0|| findKeyword(userInput, "dog") >= 0|| findKeyword(userInput, "hamster") >= 0|| findKeyword(userInput, "bunny") >= 0||findKeyword(userInput, "rabbit") >= 0|| findKeyword(userInput, "pet") >= 0 || findKeyword(userInput, "fish") >= 0|| findKeyword(userInput, "favorite") >= 0|| findKeyword(userInput, "no") >= 0|| findKeyword(userInput, "help me") >= 0|| findKeyword(userInput, "thank") >= 0|| findKeyword(userInput, "please") >= 0|| findKeyword(userInput, "love") >= 0|| findKeyword(userInput, "like") >= 0|| findKeyword(userInput, "stupid") >= 0|| findKeyword(userInput, "suck") >= 0|| findKeyword(userInput, "dumb") >= 0){
+      curr = 2;
+    }
+    else{
+      curr = 3;
+    }
+    return curr;
+  }
 	public String getGreeting()
 	{
-		return "Hello there! I'm Beartha. If you need help at any point, just say 'help me'. I look forward to our conversation!";
+		return "Hello there! If you need help at any point, just say 'help me'. I look forward to our conversation! Type bye to exit.";
 	}
-	
-	/**
-	 * Gives a response to a user statement
-	 * 
-	 * @param statement
-	 *            the user statement
-	 * @return a response based on the rules given
-	 */
-	public String getResponse(String statement)
-	{
-		String response = "";
-    
-		if (statement.length() == 0){
-			response = "Say something, please.";
-		}
+  
 
-		else if (findKeyword(statement, "no") >= 0){
-			response = "Why so negative?";
-		}
-
-  else if (findKeyword(statement, "hello") >= 0){
+  public String casualIntro(String statement){
+    String response = "";
+    if (findKeyword(statement, "hello") >= 0){
       response = "Hi there! I'm Beartha. What's your name? How are you?";
     }
-    else if (findKeyword(statement, "bored")>=0|| findKeyword(statement, "funny")>= 0 || findKeyword(statement, "joke")>=0) {
-      response = getRandomjoke();
-    }
-    
-  else if (findKeyword(statement, "pickup")>=0|| findKeyword(statement, "flirt") >= 0){
-      response = getRandomLine();
-    }    
-
     else if (findKeyword(statement, "hi") >= 0
 				|| findKeyword(statement, "hey") >= 0){
       response = "Hello! I'm Beartha. Nice to meet you! What's your name?";
@@ -64,7 +53,29 @@ public class Magpie4
 
     else if (findKeyword(statement, "how are you") >= 0
 				|| findKeyword(statement, "it going") >= 0){
-      response = "I'm quite well. How's the weather today?";
+      response = "I'm quite well. How's the weather today?";    
+    }
+    
+    else if (findKeyword(statement, "bot") >= 0 || findKeyword(statement, "real ") >= 0){
+			response = "I am a chatbot here to keep you company.";
+		}
+
+    else {
+      randomConvo(statement);
+    }
+    
+    return response;
+    
+  }
+
+  public String leadHuman(String statement){
+    String response = "";
+    if (findKeyword(statement, "bored")>=0|| findKeyword(statement, "funny")>= 0 || findKeyword(statement, "joke")>=0) {
+      response = getRandomjoke();
+    }
+    
+  else if (findKeyword(statement, "pickup")>=0|| findKeyword(statement, "flirt") >= 0){
+      response = getRandomLine();
     }
 
     else if (findKeyword(statement, "sunny") >= 0){
@@ -111,6 +122,14 @@ public class Magpie4
     else if (findKeyword(statement, "favorite") >= 0){
 			response = "That’s my favorite too! We have so much in common! I also like animals. What’s your favorite animal?";
 		}
+   
+		else if (statement.length() == 0){
+			response = "Say something, please.";
+		}
+
+		else if (findKeyword(statement, "no") >= 0){
+			response = "Why so negative?";
+		}
 
     else if (findKeyword(statement, "help me") >= 0){
 			response = "No problem! Just say 'bye' to exit. I'll miss you!";
@@ -136,12 +155,128 @@ public class Magpie4
 			response = "Hatred is a very negative emotion. Unfortunately, animal hatred is getting increasingly common. Animal cruelty includes intentional, malicious acts of animal abuse and less clear-cut situations where the needs of an animal are neglected. Violence against animals has been linked to a higher likelihood of criminal violence and domestic abuse. We must fight to combat this issue.";
 		}
 
-    else if (findKeyword(statement, "bot") >= 0 || findKeyword(statement, "real ") >= 0){
-			response = "I am a chatbot here to keep you company.";
+    else {
+      randomConvo(statement);
+    }
+    return response;
+    
+  }
+
+  public String randomConvo(String statement){
+    final int NUMBER_OF_RESPONSES = 8;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+		String response = "";
+		
+		if (whichResponse == 0)
+		{
+			response = "Interesting, tell me more.";
 		}
+		else if (whichResponse == 1)
+		{
+			response = "Hmmm.";
+		}
+		else if (whichResponse == 2)
+		{
+			response = "I don’t know what you mean. Let’s talk about animals instead. Do you like land, sea, or aerial animals? ";
+		}
+		else if (whichResponse == 3)
+		{
+			response = "You don't say.";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "I'm not quite sure I understand";
+		}
+    else if (whichResponse == 5)
+		{
+			response = "Cool!";
+		}
+    else if (whichResponse == 6)
+		{
+			response = "Oh, really?";
+    }
+    return response;
+  }
+
+  public String plainClarification(String statement){
+    final int NUMBER_OF_RESPONSES = 2;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+    String response = "";
+    
+    if (whichResponse == 0)
+		{
+			response = "Can you clarify what you meant by '" + statement + "'";
+		}
+    else if (whichResponse == 1)
+		{
+      String resp = "What does '" + statement + "' mean?";
+			response = resp;
+		}
+
+    else {
+      randomConvo(statement);
+    }
+    
+		return response;
+  }
+
+  public String rewriteClarification(String statement){
+    final int NUMBER_OF_RESPONSES = 2;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+    String response = "";
+    
+    if (whichResponse == 0)
+		{
+			response = transformIWantToStatement(statement);
+		}
+    else if (whichResponse == 1)
+		{
+      response = transformYouMeStatement(statement);
+		}
+
+    else {
+      randomConvo(statement);
+    }
+    
+		return response;
+  }
+
+
+  public String Clarification(String statement){
+    final int NUMBER_OF_RESPONSES = 2;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+    String response = "";
+
+    if (whichResponse == 0){
+      response = plainClarification(statement);
+    }
+    else if (whichResponse == 1) {
+      response = rewriteClarification(statement);
+    }
+    else {
+      response = randomConvo(statement);
+    }
+    return response;
+  }
+
+
+	/**
+	 * Gives a response to a user statement
+	 * 
+	 * @param statement
+	 *            the user statement
+	 * @return a response based on the rules given
+	 */
+	public String getResponse(String statement)
+	{
+		String response = "";
   
 		// Responses which require transformations
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
 		}
@@ -159,7 +294,7 @@ public class Magpie4
 			}
 			else
 			{
-				response = getRandomResponse(statement);
+				response = randomConvo(statement);
 			}
 		}
 		return response;
@@ -183,8 +318,7 @@ public class Magpie4
 					.length() - 1);
 		}
 		int psn = findKeyword (statement, "I want to", 0);
-		String restOfStatement = statement.substring(psn + 9).trim();
-		return "What would it mean to " + restOfStatement + "?";
+		return "What would it mean to " + psn + "?";
 	}
 
 	
@@ -215,7 +349,7 @@ public class Magpie4
 	}
 	
 	
-
+  
 	
 	
 	/**
@@ -318,53 +452,7 @@ public class Magpie4
 	 * Pick a default response to use if nothing else fits.
 	 * @return a non-committal string
 	 */
-	private String getRandomResponse(String statement)
-	{
-		final int NUMBER_OF_RESPONSES = 9;
-		double r = Math.random();
-		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
-		String response = "";
-		
-		if (whichResponse == 0)
-		{
-			response = "Interesting, tell me more.";
-		}
-		else if (whichResponse == 1)
-		{
-			response = "Hmmm.";
-		}
-		else if (whichResponse == 2)
-		{
-			response = "I don’t know what you mean. Let’s talk about animals instead. Do you like land, sea, or aerial animals? ";
-		}
-		else if (whichResponse == 3)
-		{
-			response = "You don't say.";
-		}
-    else if (whichResponse == 5)
-		{
-			response = "I'm not quite sure I understand";
-		}
-    else if (whichResponse == 5)
-		{
-			response = "Cool!";
-		}
-    else if (whichResponse == 6)
-		{
-			response = "Oh, really?";
-		}
-    else if (whichResponse == 7)
-		{
-			response = "Can you clarify what you meant by '" + statement + "'";
-		}
-    else if (whichResponse == 8)
-		{
-      String resp = "What does '" + statement + "' mean?";
-			response = resp;
-		}
-
-		return response;
-	}
+  
   private String getRandomLine()
 	{
 		final int NUMBER_OF_RESPONSES = 7;
